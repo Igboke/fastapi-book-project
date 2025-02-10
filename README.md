@@ -33,7 +33,15 @@ fastapi-book-project/
 │   └── test_books.py       # API endpoint tests
 ├── main.py                 # Application entry point
 ├── requirements.txt        # Project dependencies
-└── README.md
+├── README.md
+├──nginx/
+│  └──nginx.conf            #nginx configuration
+├──.github/
+│   └──workflows/
+│      ├──ci.yml            #CI workflow
+│      └──deploy.yml        #CD workflow
+└── Dockerfile              #DOckerfile to build nginx
+  
 ```
 
 ## Technologies Used
@@ -43,13 +51,15 @@ fastapi-book-project/
 - Pydantic
 - pytest
 - uvicorn
+- Docker (for containerized deployment)
+- Render Account
 
 ## Installation
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/hng12-devbotops/fastapi-book-project.git
+git clone https://github.com/Igboke/fastapi-book-project.git
 cd fastapi-book-project
 ```
 
@@ -58,6 +68,7 @@ cd fastapi-book-project
 ```bash
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/scripts/activate #Git Bash
 ```
 
 3. Install dependencies:
@@ -71,7 +82,7 @@ pip install -r requirements.txt
 1. Start the server:
 
 ```bash
-uvicorn main:app
+uvicorn main:app --reload
 ```
 
 2. Access the API documentation:
@@ -117,7 +128,7 @@ Available genres:
 ## Running Tests
 
 ```bash
-pytest
+pytest tests -v
 ```
 
 ## Error Handling
@@ -146,3 +157,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 For support, please open an issue in the GitHub repository.
 
 [![CI Pipeline](https://github.com/Igboke/fastapi-book-project/actions/workflows/ci.yml/badge.svg)](https://github.com/Igboke/fastapi-book-project/actions/workflows/ci.yml)
+[![CD Pipeline](https://github.com/Igboke/fastapi-book-project/actions/workflows/deploy.yml/badge.svg)](https://github.com/Igboke/fastapi-book-project/actions/workflows/deploy.yml)
