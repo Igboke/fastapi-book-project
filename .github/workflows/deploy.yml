@@ -10,7 +10,9 @@ jobs:
       - name: Trigger Render Deployment
         uses: nick-fields/retry@v2
         with:
-          command: |
-            curl -X POST "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys" \
-              -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
-              -H "Accept: application/json"
+            timeout_minutes: 5
+            max_attempts: 3
+            command: |
+                curl -X POST "https://api.render.com/v1/services/${{ secrets.RENDER_SERVICE_ID }}/deploys" \
+                -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
+                -H "Accept: application/json"
