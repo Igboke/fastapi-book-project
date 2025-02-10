@@ -35,7 +35,7 @@ fastapi-book-project/
 ├── requirements.txt        # Project dependencies
 ├── README.md
 ├──nginx/
-│  └──nginx.conf            #nginx configuration
+│  └──nginx.conf.template           #nginx configuration
 ├──.github/
 │   └──workflows/
 │      ├──ci.yml            #CI workflow

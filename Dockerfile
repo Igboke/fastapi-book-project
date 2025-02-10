@@ -15,10 +15,12 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy Nginx config
-COPY /nginx/nginx.conf /etc/nginx/nginx.conf
+COPY /nginx/nginx.conf.template /etc/nginx/nginx.conf.template
 
 # Copy entire project
 COPY . .
 
 # Start Nginx and FastAPI
-CMD service nginx start && uvicorn main:app --host 0.0.0.0 --port 8000
+CMD envsubst '\$PORT' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && \
+    service nginx start && \
+    uvicorn main:app --host 0.0.0.0 --port 8000
