@@ -140,6 +140,34 @@ The API includes proper error handling for:
 - Invalid genre types
 - Malformed requests
 
+## 🚀 Deployment Details
+
+### Render Deployment
+
+- Fork this repository
+
+- Create new Web Service on Render
+
+- Connect your GitHub repository
+
+- Configure:
+
+  Runtime: Docker
+
+  Build Command: (leave empty)
+
+  Start Command: (leave empty)
+
+  Add environment variables if needed
+
+  Enable Auto-Deploy on main branch
+
+### CI/CD Pipeline
+
+- Automatic tests on PRs to main
+
+- Auto-deploy to Render on merge to main
+
 ## Contributing
 
 1. Fork the repository
