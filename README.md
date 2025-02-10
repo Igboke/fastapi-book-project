@@ -144,3 +144,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Support
 
 For support, please open an issue in the GitHub repository.
+
+[![CI Pipeline](https://github.com/Igboke/fastapi-book-project/actions/workflows/ci.yml/badge.svg)](https://github.com/Igboke/fastapi-book-project/actions/workflows/ci.yml)
