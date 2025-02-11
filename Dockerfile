@@ -3,7 +3,7 @@ FROM python:3.12-slim
 
 # Install system dependencies (Nginx + build tools)
 RUN apt-get update && \
-    apt-get install -y nginx && \
+    apt-get install -y nginx gettext-base && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
