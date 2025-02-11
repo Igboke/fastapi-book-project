@@ -12,12 +12,12 @@ COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy Nginx config template
-COPY nginx.conf.template /etc/nginx/nginx.conf.template
+COPY /nginx/nginx.conf.template /etc/nginx/nginx.conf.template
 
 # Copy app code
 COPY . .
 
 # Substitute $PORT into Nginx config and start services
-CMD envsubst '\$PORT' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && \
+CMD envsubst '\$PORT' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf.template && \
     service nginx start && \
     uvicorn main:app --host 0.0.0.0 --port 8000
