@@ -5,13 +5,13 @@ http {
     listen ${PORT};  # Render uses dynamic ports via $PORT
     server_name _;
 
+    more_set_headers "Server: nginx";
+
     location / {
       proxy_pass http://localhost:8000;  # Forward to FastAPI
       proxy_set_header Host $host;
       proxy_set_header X-Real-IP $remote_addr;
       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-      add_header Server "nginx" always;
-      add_header X-My-Proxy "Nginx Reverse Proxy" always;
     }
   }
 }
