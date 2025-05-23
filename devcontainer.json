@@ -1,0 +1,8 @@
+{
+    "name": "FastAPI Project Container",
+    "build": "Dockerfile", 
+    "features": {
+      "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
+    },
+    "postCreateCommand": "pip install -r requirements.txt"
+  }
