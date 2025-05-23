@@ -17,7 +17,9 @@ COPY /nginx/nginx.conf.template /etc/nginx/nginx.conf.template
 # Copy app code
 COPY . .
 
-# Substitute $PORT into Nginx config and start services
-CMD envsubst '\$PORT' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && \
-    service nginx start && \
-    uvicorn main:app --host 0.0.0.0 --port 8000
+# Copy the startup script and make it executable
+COPY start.sh .
+RUN chmod +x start.sh
+
+# Run the startup script as the container's primary command
+CMD ["./start.sh"]
