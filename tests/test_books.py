@@ -1,4 +1,4 @@
-from tests import TestClient
+from fastapi.testclient import TestClient
 from api.db.schemas import Genre
 from main import app
 
