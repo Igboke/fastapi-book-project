@@ -51,6 +51,7 @@ class InMemoryDB:
             Book: Added book.
         """
         self.books.update({book.id: book})
+        return book
 
     def get_book(self, book_id: int) -> Book:
         """Gets a specific book from database.
